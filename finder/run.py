@@ -1,3 +1,3 @@
 import main_cython
 
-print(main_cython.find([0, 0, 0, 0, 0, 0, 0, 0, 0], 0, 6, 2147483647,0))
+print(main_cython.find(number=0, count=9, max_count=2, min=0, max=10, max_seed=2147483647, min_seed=0))

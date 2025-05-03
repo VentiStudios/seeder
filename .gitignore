@@ -1,7 +1,13 @@
+# Cython build results
 /finder/build
-
 /finder/*.so
 /finder/*.dll
 
+# Caches
 **/__pycache__
+
+# macOS
 **/.DS_Store
+
+# Cython generated C codes
+**/*_cython.c
