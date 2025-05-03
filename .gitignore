@@ -1,0 +1,7 @@
+/finder/build
+
+/finder/*.so
+/finder/*.dll
+
+**/__pycache__
+**/.DS_Store
