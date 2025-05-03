@@ -2132,18 +2132,19 @@ static const char __pyx_k__4[] = ".";
 static const char __pyx_k__5[] = "_";
 static const char __pyx_k__9[] = "?";
 static const char __pyx_k_int[] = "int";
-static const char __pyx_k_max[] = "max";
-static const char __pyx_k_min[] = "min";
 static const char __pyx_k_find[] = "find";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_seed[] = "seed";
 static const char __pyx_k_spec[] = "__spec__";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_time[] = "time";
 static const char __pyx_k_tqdm[] = "tqdm";
+static const char __pyx_k_Queue[] = "Queue";
 static const char __pyx_k_count[] = "count";
 static const char __pyx_k_found[] = "found";
 static const char __pyx_k_print[] = "print";
+static const char __pyx_k_queue[] = "queue";
 static const char __pyx_k_range[] = "range";
 static const char __pyx_k_direct[] = "direct";
 static const char __pyx_k_import[] = "__import__";
@@ -2151,11 +2152,14 @@ static const char __pyx_k_number[] = "number";
 static const char __pyx_k_random[] = "random";
 static const char __pyx_k_return[] = "return";
 static const char __pyx_k_trange[] = "trange";
+static const char __pyx_k_max_val[] = "max_val";
+static const char __pyx_k_min_val[] = "min_val";
 static const char __pyx_k_randint[] = "randint";
 static const char __pyx_k_list_int[] = "list[int]";
 static const char __pyx_k_max_seed[] = "max_seed";
 static const char __pyx_k_min_seed[] = "min_seed";
 static const char __pyx_k_max_count[] = "max_count";
+static const char __pyx_k_threading[] = "threading";
 static const char __pyx_k_main_cython[] = "main_cython";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
@@ -2164,7 +2168,7 @@ static const char __pyx_k_possible_seeds[] = "possible_seeds";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_number, PyObject *__pyx_v_count, PyObject *__pyx_v_max_count, PyObject *__pyx_v_min, PyObject *__pyx_v_max, PyObject *__pyx_v_max_seed, PyObject *__pyx_v_min_seed, PyObject *__pyx_v_direct); /* proto */
+static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_number, PyObject *__pyx_v_count, PyObject *__pyx_v_max_count, PyObject *__pyx_v_min_val, PyObject *__pyx_v_max_val, PyObject *__pyx_v_max_seed, PyObject *__pyx_v_min_seed, PyObject *__pyx_v_direct); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 typedef struct {
@@ -2195,6 +2199,7 @@ typedef struct {
   #if CYTHON_USE_MODULE_STATE
   #endif
   PyObject *__pyx_n_u_;
+  PyObject *__pyx_n_s_Queue;
   PyObject *__pyx_kp_u__2;
   PyObject *__pyx_n_s__3;
   PyObject *__pyx_kp_u__4;
@@ -2214,15 +2219,16 @@ typedef struct {
   PyObject *__pyx_n_s_main;
   PyObject *__pyx_n_s_main_cython;
   PyObject *__pyx_kp_s_main_cython_py;
-  PyObject *__pyx_n_s_max;
   PyObject *__pyx_n_s_max_count;
   PyObject *__pyx_n_s_max_seed;
-  PyObject *__pyx_n_s_min;
+  PyObject *__pyx_n_s_max_val;
   PyObject *__pyx_n_s_min_seed;
+  PyObject *__pyx_n_s_min_val;
   PyObject *__pyx_n_s_name;
   PyObject *__pyx_n_s_number;
   PyObject *__pyx_n_s_possible_seeds;
   PyObject *__pyx_n_s_print;
+  PyObject *__pyx_n_s_queue;
   PyObject *__pyx_n_s_randint;
   PyObject *__pyx_n_s_random;
   PyObject *__pyx_n_s_range;
@@ -2230,6 +2236,8 @@ typedef struct {
   PyObject *__pyx_n_s_seed;
   PyObject *__pyx_n_s_spec;
   PyObject *__pyx_n_s_test;
+  PyObject *__pyx_n_s_threading;
+  PyObject *__pyx_n_s_time;
   PyObject *__pyx_n_s_tqdm;
   PyObject *__pyx_n_s_trange;
   PyObject *__pyx_int_0;
@@ -2282,6 +2290,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_FusedFunctionType);
   #endif
   Py_CLEAR(clear_module_state->__pyx_n_u_);
+  Py_CLEAR(clear_module_state->__pyx_n_s_Queue);
   Py_CLEAR(clear_module_state->__pyx_kp_u__2);
   Py_CLEAR(clear_module_state->__pyx_n_s__3);
   Py_CLEAR(clear_module_state->__pyx_kp_u__4);
@@ -2301,15 +2310,16 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_main);
   Py_CLEAR(clear_module_state->__pyx_n_s_main_cython);
   Py_CLEAR(clear_module_state->__pyx_kp_s_main_cython_py);
-  Py_CLEAR(clear_module_state->__pyx_n_s_max);
   Py_CLEAR(clear_module_state->__pyx_n_s_max_count);
   Py_CLEAR(clear_module_state->__pyx_n_s_max_seed);
-  Py_CLEAR(clear_module_state->__pyx_n_s_min);
+  Py_CLEAR(clear_module_state->__pyx_n_s_max_val);
   Py_CLEAR(clear_module_state->__pyx_n_s_min_seed);
+  Py_CLEAR(clear_module_state->__pyx_n_s_min_val);
   Py_CLEAR(clear_module_state->__pyx_n_s_name);
   Py_CLEAR(clear_module_state->__pyx_n_s_number);
   Py_CLEAR(clear_module_state->__pyx_n_s_possible_seeds);
   Py_CLEAR(clear_module_state->__pyx_n_s_print);
+  Py_CLEAR(clear_module_state->__pyx_n_s_queue);
   Py_CLEAR(clear_module_state->__pyx_n_s_randint);
   Py_CLEAR(clear_module_state->__pyx_n_s_random);
   Py_CLEAR(clear_module_state->__pyx_n_s_range);
@@ -2317,6 +2327,8 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_seed);
   Py_CLEAR(clear_module_state->__pyx_n_s_spec);
   Py_CLEAR(clear_module_state->__pyx_n_s_test);
+  Py_CLEAR(clear_module_state->__pyx_n_s_threading);
+  Py_CLEAR(clear_module_state->__pyx_n_s_time);
   Py_CLEAR(clear_module_state->__pyx_n_s_tqdm);
   Py_CLEAR(clear_module_state->__pyx_n_s_trange);
   Py_CLEAR(clear_module_state->__pyx_int_0);
@@ -2347,6 +2359,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
   Py_VISIT(traverse_module_state->__pyx_n_u_);
+  Py_VISIT(traverse_module_state->__pyx_n_s_Queue);
   Py_VISIT(traverse_module_state->__pyx_kp_u__2);
   Py_VISIT(traverse_module_state->__pyx_n_s__3);
   Py_VISIT(traverse_module_state->__pyx_kp_u__4);
@@ -2366,15 +2379,16 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_main);
   Py_VISIT(traverse_module_state->__pyx_n_s_main_cython);
   Py_VISIT(traverse_module_state->__pyx_kp_s_main_cython_py);
-  Py_VISIT(traverse_module_state->__pyx_n_s_max);
   Py_VISIT(traverse_module_state->__pyx_n_s_max_count);
   Py_VISIT(traverse_module_state->__pyx_n_s_max_seed);
-  Py_VISIT(traverse_module_state->__pyx_n_s_min);
+  Py_VISIT(traverse_module_state->__pyx_n_s_max_val);
   Py_VISIT(traverse_module_state->__pyx_n_s_min_seed);
+  Py_VISIT(traverse_module_state->__pyx_n_s_min_val);
   Py_VISIT(traverse_module_state->__pyx_n_s_name);
   Py_VISIT(traverse_module_state->__pyx_n_s_number);
   Py_VISIT(traverse_module_state->__pyx_n_s_possible_seeds);
   Py_VISIT(traverse_module_state->__pyx_n_s_print);
+  Py_VISIT(traverse_module_state->__pyx_n_s_queue);
   Py_VISIT(traverse_module_state->__pyx_n_s_randint);
   Py_VISIT(traverse_module_state->__pyx_n_s_random);
   Py_VISIT(traverse_module_state->__pyx_n_s_range);
@@ -2382,6 +2396,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_seed);
   Py_VISIT(traverse_module_state->__pyx_n_s_spec);
   Py_VISIT(traverse_module_state->__pyx_n_s_test);
+  Py_VISIT(traverse_module_state->__pyx_n_s_threading);
+  Py_VISIT(traverse_module_state->__pyx_n_s_time);
   Py_VISIT(traverse_module_state->__pyx_n_s_tqdm);
   Py_VISIT(traverse_module_state->__pyx_n_s_trange);
   Py_VISIT(traverse_module_state->__pyx_int_0);
@@ -2422,6 +2438,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #if CYTHON_USE_MODULE_STATE
 #endif
 #define __pyx_n_u_ __pyx_mstate_global->__pyx_n_u_
+#define __pyx_n_s_Queue __pyx_mstate_global->__pyx_n_s_Queue
 #define __pyx_kp_u__2 __pyx_mstate_global->__pyx_kp_u__2
 #define __pyx_n_s__3 __pyx_mstate_global->__pyx_n_s__3
 #define __pyx_kp_u__4 __pyx_mstate_global->__pyx_kp_u__4
@@ -2441,15 +2458,16 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_main __pyx_mstate_global->__pyx_n_s_main
 #define __pyx_n_s_main_cython __pyx_mstate_global->__pyx_n_s_main_cython
 #define __pyx_kp_s_main_cython_py __pyx_mstate_global->__pyx_kp_s_main_cython_py
-#define __pyx_n_s_max __pyx_mstate_global->__pyx_n_s_max
 #define __pyx_n_s_max_count __pyx_mstate_global->__pyx_n_s_max_count
 #define __pyx_n_s_max_seed __pyx_mstate_global->__pyx_n_s_max_seed
-#define __pyx_n_s_min __pyx_mstate_global->__pyx_n_s_min
+#define __pyx_n_s_max_val __pyx_mstate_global->__pyx_n_s_max_val
 #define __pyx_n_s_min_seed __pyx_mstate_global->__pyx_n_s_min_seed
+#define __pyx_n_s_min_val __pyx_mstate_global->__pyx_n_s_min_val
 #define __pyx_n_s_name __pyx_mstate_global->__pyx_n_s_name
 #define __pyx_n_s_number __pyx_mstate_global->__pyx_n_s_number
 #define __pyx_n_s_possible_seeds __pyx_mstate_global->__pyx_n_s_possible_seeds
 #define __pyx_n_s_print __pyx_mstate_global->__pyx_n_s_print
+#define __pyx_n_s_queue __pyx_mstate_global->__pyx_n_s_queue
 #define __pyx_n_s_randint __pyx_mstate_global->__pyx_n_s_randint
 #define __pyx_n_s_random __pyx_mstate_global->__pyx_n_s_random
 #define __pyx_n_s_range __pyx_mstate_global->__pyx_n_s_range
@@ -2457,6 +2475,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_seed __pyx_mstate_global->__pyx_n_s_seed
 #define __pyx_n_s_spec __pyx_mstate_global->__pyx_n_s_spec
 #define __pyx_n_s_test __pyx_mstate_global->__pyx_n_s_test
+#define __pyx_n_s_threading __pyx_mstate_global->__pyx_n_s_threading
+#define __pyx_n_s_time __pyx_mstate_global->__pyx_n_s_time
 #define __pyx_n_s_tqdm __pyx_mstate_global->__pyx_n_s_tqdm
 #define __pyx_n_s_trange __pyx_mstate_global->__pyx_n_s_trange
 #define __pyx_int_0 __pyx_mstate_global->__pyx_int_0
@@ -2468,10 +2488,10 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_codeobj__7 __pyx_mstate_global->__pyx_codeobj__7
 /* #### Code section: module_code ### */
 
-/* "main_cython.py":4
- * from tqdm import trange
+/* "main_cython.py":7
+ * import time
  * 
- * def find(number: int, count: int, max_count = 1, min=0, max=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:             # <<<<<<<<<<<<<<
+ * def find(number: int, count: int, max_count = 1, min_val=0, max_val=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:             # <<<<<<<<<<<<<<
  *     possible_seeds = []
  *     for seed in trange(min_seed, max_seed):
  */
@@ -2495,8 +2515,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   PyObject *__pyx_v_number = 0;
   PyObject *__pyx_v_count = 0;
   PyObject *__pyx_v_max_count = 0;
-  PyObject *__pyx_v_min = 0;
-  PyObject *__pyx_v_max = 0;
+  PyObject *__pyx_v_min_val = 0;
+  PyObject *__pyx_v_max_val = 0;
   PyObject *__pyx_v_max_seed = 0;
   PyObject *__pyx_v_min_seed = 0;
   PyObject *__pyx_v_direct = 0;
@@ -2520,7 +2540,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_number,&__pyx_n_s_count,&__pyx_n_s_max_count,&__pyx_n_s_min,&__pyx_n_s_max,&__pyx_n_s_max_seed,&__pyx_n_s_min_seed,&__pyx_n_s_direct,0};
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_number,&__pyx_n_s_count,&__pyx_n_s_max_count,&__pyx_n_s_min_val,&__pyx_n_s_max_val,&__pyx_n_s_max_seed,&__pyx_n_s_min_seed,&__pyx_n_s_direct,0};
     values[2] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)((PyObject *)__pyx_int_1)));
     values[3] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)((PyObject *)__pyx_int_0)));
     values[4] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)((PyObject *)__pyx_int_100)));
@@ -2556,7 +2576,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[0]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 4, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 7, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
@@ -2564,56 +2584,56 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
           (void)__Pyx_Arg_NewRef_FASTCALL(values[1]);
           kw_args--;
         }
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 4, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 7, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("find", 0, 2, 8, 1); __PYX_ERR(0, 4, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("find", 0, 2, 8, 1); __PYX_ERR(0, 7, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_max_count);
           if (value) { values[2] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 4, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 7, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (kw_args > 0) {
-          PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_min);
+          PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_min_val);
           if (value) { values[3] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 4, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 7, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (kw_args > 0) {
-          PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_max);
+          PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_max_val);
           if (value) { values[4] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 4, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 7, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_max_seed);
           if (value) { values[5] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 4, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 7, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  6:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_min_seed);
           if (value) { values[6] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 4, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 7, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  7:
         if (kw_args > 0) {
           PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_direct);
           if (value) { values[7] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
-          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 4, __pyx_L3_error)
+          else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 7, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "find") < 0)) __PYX_ERR(0, 4, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "find") < 0)) __PYX_ERR(0, 7, __pyx_L3_error)
       }
     } else {
       switch (__pyx_nargs) {
@@ -2638,15 +2658,15 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     __pyx_v_number = ((PyObject*)values[0]);
     __pyx_v_count = ((PyObject*)values[1]);
     __pyx_v_max_count = values[2];
-    __pyx_v_min = values[3];
-    __pyx_v_max = values[4];
+    __pyx_v_min_val = values[3];
+    __pyx_v_max_val = values[4];
     __pyx_v_max_seed = values[5];
     __pyx_v_min_seed = values[6];
     __pyx_v_direct = values[7];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("find", 0, 2, 8, __pyx_nargs); __PYX_ERR(0, 4, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("find", 0, 2, 8, __pyx_nargs); __PYX_ERR(0, 7, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2660,9 +2680,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_number), (&PyInt_Type), 0, "number", 1))) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_count), (&PyInt_Type), 0, "count", 1))) __PYX_ERR(0, 4, __pyx_L1_error)
-  __pyx_r = __pyx_pf_11main_cython_find(__pyx_self, __pyx_v_number, __pyx_v_count, __pyx_v_max_count, __pyx_v_min, __pyx_v_max, __pyx_v_max_seed, __pyx_v_min_seed, __pyx_v_direct);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_number), (&PyInt_Type), 0, "number", 1))) __PYX_ERR(0, 7, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_count), (&PyInt_Type), 0, "count", 1))) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_r = __pyx_pf_11main_cython_find(__pyx_self, __pyx_v_number, __pyx_v_count, __pyx_v_max_count, __pyx_v_min_val, __pyx_v_max_val, __pyx_v_max_seed, __pyx_v_min_seed, __pyx_v_direct);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2679,7 +2699,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_number, PyObject *__pyx_v_count, PyObject *__pyx_v_max_count, PyObject *__pyx_v_min, PyObject *__pyx_v_max, PyObject *__pyx_v_max_seed, PyObject *__pyx_v_min_seed, PyObject *__pyx_v_direct) {
+static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_number, PyObject *__pyx_v_count, PyObject *__pyx_v_max_count, PyObject *__pyx_v_min_val, PyObject *__pyx_v_max_val, PyObject *__pyx_v_max_seed, PyObject *__pyx_v_min_seed, PyObject *__pyx_v_direct) {
   PyObject *__pyx_v_possible_seeds = NULL;
   PyObject *__pyx_v_seed = NULL;
   int __pyx_v_found;
@@ -2705,26 +2725,26 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("find", 1);
 
-  /* "main_cython.py":5
+  /* "main_cython.py":8
  * 
- * def find(number: int, count: int, max_count = 1, min=0, max=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:
+ * def find(number: int, count: int, max_count = 1, min_val=0, max_val=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:
  *     possible_seeds = []             # <<<<<<<<<<<<<<
  *     for seed in trange(min_seed, max_seed):
  *         random.seed(seed)
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_possible_seeds = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "main_cython.py":6
- * def find(number: int, count: int, max_count = 1, min=0, max=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:
+  /* "main_cython.py":9
+ * def find(number: int, count: int, max_count = 1, min_val=0, max_val=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:
  *     possible_seeds = []
  *     for seed in trange(min_seed, max_seed):             # <<<<<<<<<<<<<<
  *         random.seed(seed)
  *         found = True
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_trange); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_trange); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -2744,7 +2764,7 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
     PyObject *__pyx_callargs[3] = {__pyx_t_3, __pyx_v_min_seed, __pyx_v_max_seed};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+1-__pyx_t_4, 2+__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -2753,9 +2773,9 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
     __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
   } else {
-    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 6, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 9, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -2764,28 +2784,28 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 6, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 9, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_1); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 6, __pyx_L1_error)
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_1); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 9, __pyx_L1_error)
         #else
-        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       } else {
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_MACROS
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 6, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 9, __pyx_L1_error)
           #endif
           if (__pyx_t_5 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_1); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 6, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_1); __pyx_t_5++; if (unlikely((0 < 0))) __PYX_ERR(0, 9, __pyx_L1_error)
         #else
-        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       }
@@ -2795,7 +2815,7 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 6, __pyx_L1_error)
+          else __PYX_ERR(0, 9, __pyx_L1_error)
         }
         break;
       }
@@ -2804,16 +2824,16 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
     __Pyx_XDECREF_SET(__pyx_v_seed, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "main_cython.py":7
+    /* "main_cython.py":10
  *     possible_seeds = []
  *     for seed in trange(min_seed, max_seed):
  *         random.seed(seed)             # <<<<<<<<<<<<<<
  *         found = True
  *         for _ in range(count):
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_seed); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 7, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_seed); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 10, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -2834,38 +2854,38 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
       PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_v_seed};
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+1-__pyx_t_4, 1+__pyx_t_4);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "main_cython.py":8
+    /* "main_cython.py":11
  *     for seed in trange(min_seed, max_seed):
  *         random.seed(seed)
  *         found = True             # <<<<<<<<<<<<<<
  *         for _ in range(count):
- *             if random.randint(min, max) != number:
+ *             if random.randint(min_val, max_val) != number:
  */
     __pyx_v_found = 1;
 
-    /* "main_cython.py":9
+    /* "main_cython.py":12
  *         random.seed(seed)
  *         found = True
  *         for _ in range(count):             # <<<<<<<<<<<<<<
- *             if random.randint(min, max) != number:
+ *             if random.randint(min_val, max_val) != number:
  *                 found = False
  */
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_range, __pyx_v_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
       __pyx_t_7 = __pyx_t_1; __Pyx_INCREF(__pyx_t_7);
       __pyx_t_8 = 0;
       __pyx_t_9 = NULL;
     } else {
-      __pyx_t_8 = -1; __pyx_t_7 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 9, __pyx_L1_error)
+      __pyx_t_8 = -1; __pyx_t_7 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 12, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 9, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 12, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     for (;;) {
@@ -2874,28 +2894,28 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_7);
             #if !CYTHON_ASSUME_SAFE_MACROS
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 9, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 12, __pyx_L1_error)
             #endif
             if (__pyx_t_8 >= __pyx_temp) break;
           }
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_1); __pyx_t_8++; if (unlikely((0 < 0))) __PYX_ERR(0, 9, __pyx_L1_error)
+          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_1); __pyx_t_8++; if (unlikely((0 < 0))) __PYX_ERR(0, 12, __pyx_L1_error)
           #else
-          __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           #endif
         } else {
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_7);
             #if !CYTHON_ASSUME_SAFE_MACROS
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 9, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 12, __pyx_L1_error)
             #endif
             if (__pyx_t_8 >= __pyx_temp) break;
           }
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_1); __pyx_t_8++; if (unlikely((0 < 0))) __PYX_ERR(0, 9, __pyx_L1_error)
+          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_7, __pyx_t_8); __Pyx_INCREF(__pyx_t_1); __pyx_t_8++; if (unlikely((0 < 0))) __PYX_ERR(0, 12, __pyx_L1_error)
           #else
-          __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_7, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           #endif
         }
@@ -2905,26 +2925,26 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 9, __pyx_L1_error)
+            else __PYX_ERR(0, 12, __pyx_L1_error)
           }
           break;
         }
         __Pyx_GOTREF(__pyx_t_1);
       }
-      if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_t_1))) __PYX_ERR(0, 9, __pyx_L1_error)
+      if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_t_1))) __PYX_ERR(0, 12, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v__, ((PyObject*)__pyx_t_1));
       __pyx_t_1 = 0;
 
-      /* "main_cython.py":10
+      /* "main_cython.py":13
  *         found = True
  *         for _ in range(count):
- *             if random.randint(min, max) != number:             # <<<<<<<<<<<<<<
+ *             if random.randint(min_val, max_val) != number:             # <<<<<<<<<<<<<<
  *                 found = False
  *                 break
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_randint); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 10, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_randint); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 13, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_3 = NULL;
@@ -2942,51 +2962,51 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
       }
       #endif
       {
-        PyObject *__pyx_callargs[3] = {__pyx_t_3, __pyx_v_min, __pyx_v_max};
+        PyObject *__pyx_callargs[3] = {__pyx_t_3, __pyx_v_min_val, __pyx_v_max_val};
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+1-__pyx_t_4, 2+__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       }
-      __pyx_t_10 = PyObject_RichCompare(__pyx_t_1, __pyx_v_number, Py_NE); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 10, __pyx_L1_error)
+      __pyx_t_10 = PyObject_RichCompare(__pyx_t_1, __pyx_v_number, Py_NE); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 13, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_10); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 10, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_10); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 13, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       if (__pyx_t_11) {
 
-        /* "main_cython.py":11
+        /* "main_cython.py":14
  *         for _ in range(count):
- *             if random.randint(min, max) != number:
+ *             if random.randint(min_val, max_val) != number:
  *                 found = False             # <<<<<<<<<<<<<<
  *                 break
  *         if found:
  */
         __pyx_v_found = 0;
 
-        /* "main_cython.py":12
- *             if random.randint(min, max) != number:
+        /* "main_cython.py":15
+ *             if random.randint(min_val, max_val) != number:
  *                 found = False
  *                 break             # <<<<<<<<<<<<<<
  *         if found:
- *             if random.randint(min, max) != number:
+ *             if random.randint(min_val, max_val) != number:
  */
         goto __pyx_L6_break;
 
-        /* "main_cython.py":10
+        /* "main_cython.py":13
  *         found = True
  *         for _ in range(count):
- *             if random.randint(min, max) != number:             # <<<<<<<<<<<<<<
+ *             if random.randint(min_val, max_val) != number:             # <<<<<<<<<<<<<<
  *                 found = False
  *                 break
  */
       }
 
-      /* "main_cython.py":9
+      /* "main_cython.py":12
  *         random.seed(seed)
  *         found = True
  *         for _ in range(count):             # <<<<<<<<<<<<<<
- *             if random.randint(min, max) != number:
+ *             if random.randint(min_val, max_val) != number:
  *                 found = False
  */
     }
@@ -2997,25 +3017,25 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
     goto __pyx_L8_for_end;
     __pyx_L8_for_end:;
 
-    /* "main_cython.py":13
+    /* "main_cython.py":16
  *                 found = False
  *                 break
  *         if found:             # <<<<<<<<<<<<<<
- *             if random.randint(min, max) != number:
+ *             if random.randint(min_val, max_val) != number:
  *                 possible_seeds.append(seed)
  */
     if (__pyx_v_found) {
 
-      /* "main_cython.py":14
+      /* "main_cython.py":17
  *                 break
  *         if found:
- *             if random.randint(min, max) != number:             # <<<<<<<<<<<<<<
+ *             if random.randint(min_val, max_val) != number:             # <<<<<<<<<<<<<<
  *                 possible_seeds.append(seed)
  *                 if direct and len(possible_seeds) == max_count:
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_random); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 14, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_n_s_random); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 17, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_randint); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_randint); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __pyx_t_10 = NULL;
@@ -3033,53 +3053,53 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
       }
       #endif
       {
-        PyObject *__pyx_callargs[3] = {__pyx_t_10, __pyx_v_min, __pyx_v_max};
+        PyObject *__pyx_callargs[3] = {__pyx_t_10, __pyx_v_min_val, __pyx_v_max_val};
         __pyx_t_7 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+1-__pyx_t_4, 2+__pyx_t_4);
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-        if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 14, __pyx_L1_error)
+        if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 17, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       }
-      __pyx_t_1 = PyObject_RichCompare(__pyx_t_7, __pyx_v_number, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+      __pyx_t_1 = PyObject_RichCompare(__pyx_t_7, __pyx_v_number, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 14, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 17, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_11) {
 
-        /* "main_cython.py":15
+        /* "main_cython.py":18
  *         if found:
- *             if random.randint(min, max) != number:
+ *             if random.randint(min_val, max_val) != number:
  *                 possible_seeds.append(seed)             # <<<<<<<<<<<<<<
  *                 if direct and len(possible_seeds) == max_count:
  *                     return possible_seeds
  */
-        __pyx_t_12 = __Pyx_PyList_Append(__pyx_v_possible_seeds, __pyx_v_seed); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 15, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyList_Append(__pyx_v_possible_seeds, __pyx_v_seed); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 18, __pyx_L1_error)
 
-        /* "main_cython.py":16
- *             if random.randint(min, max) != number:
+        /* "main_cython.py":19
+ *             if random.randint(min_val, max_val) != number:
  *                 possible_seeds.append(seed)
  *                 if direct and len(possible_seeds) == max_count:             # <<<<<<<<<<<<<<
  *                     return possible_seeds
  *             else:
  */
-        __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_v_direct); if (unlikely((__pyx_t_13 < 0))) __PYX_ERR(0, 16, __pyx_L1_error)
+        __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_v_direct); if (unlikely((__pyx_t_13 < 0))) __PYX_ERR(0, 19, __pyx_L1_error)
         if (__pyx_t_13) {
         } else {
           __pyx_t_11 = __pyx_t_13;
           goto __pyx_L12_bool_binop_done;
         }
-        __pyx_t_8 = __Pyx_PyList_GET_SIZE(__pyx_v_possible_seeds); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 16, __pyx_L1_error)
-        __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyList_GET_SIZE(__pyx_v_possible_seeds); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 19, __pyx_L1_error)
+        __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_7 = PyObject_RichCompare(__pyx_t_1, __pyx_v_max_count, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 16, __pyx_L1_error)
+        __pyx_t_7 = PyObject_RichCompare(__pyx_t_1, __pyx_v_max_count, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 19, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely((__pyx_t_13 < 0))) __PYX_ERR(0, 16, __pyx_L1_error)
+        __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely((__pyx_t_13 < 0))) __PYX_ERR(0, 19, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __pyx_t_11 = __pyx_t_13;
         __pyx_L12_bool_binop_done:;
         if (__pyx_t_11) {
 
-          /* "main_cython.py":17
+          /* "main_cython.py":20
  *                 possible_seeds.append(seed)
  *                 if direct and len(possible_seeds) == max_count:
  *                     return possible_seeds             # <<<<<<<<<<<<<<
@@ -3092,8 +3112,8 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           goto __pyx_L0;
 
-          /* "main_cython.py":16
- *             if random.randint(min, max) != number:
+          /* "main_cython.py":19
+ *             if random.randint(min_val, max_val) != number:
  *                 possible_seeds.append(seed)
  *                 if direct and len(possible_seeds) == max_count:             # <<<<<<<<<<<<<<
  *                     return possible_seeds
@@ -3101,17 +3121,17 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
  */
         }
 
-        /* "main_cython.py":14
+        /* "main_cython.py":17
  *                 break
  *         if found:
- *             if random.randint(min, max) != number:             # <<<<<<<<<<<<<<
+ *             if random.randint(min_val, max_val) != number:             # <<<<<<<<<<<<<<
  *                 possible_seeds.append(seed)
  *                 if direct and len(possible_seeds) == max_count:
  */
         goto __pyx_L10;
       }
 
-      /* "main_cython.py":19
+      /* "main_cython.py":22
  *                     return possible_seeds
  *             else:
  *                 print(f"{seed}{count}")             # <<<<<<<<<<<<<<
@@ -3119,7 +3139,7 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
  *     return possible_seeds
  */
       /*else*/ {
-        __pyx_t_7 = PyTuple_New(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 19, __pyx_L1_error)
+        __pyx_t_7 = PyTuple_New(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 22, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __pyx_t_8 = 0;
         __pyx_t_14 = 127;
@@ -3128,7 +3148,7 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
         __pyx_t_8 += 4;
         __Pyx_GIVEREF(__pyx_n_u_);
         PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_n_u_);
-        __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_seed, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_seed, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_14 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) > __pyx_t_14) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) : __pyx_t_14;
         __pyx_t_8 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1);
@@ -3140,34 +3160,34 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
         __pyx_t_8 += __Pyx_PyUnicode_GET_LENGTH(__pyx_kp_u__2);
         __Pyx_GIVEREF(__pyx_kp_u__2);
         PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_kp_u__2);
-        __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_count, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_count, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_14 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) > __pyx_t_14) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) : __pyx_t_14;
         __pyx_t_8 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1);
         __Pyx_GIVEREF(__pyx_t_1);
         PyTuple_SET_ITEM(__pyx_t_7, 3, __pyx_t_1);
         __pyx_t_1 = 0;
-        __pyx_t_1 = __Pyx_PyUnicode_Join(__pyx_t_7, 4, __pyx_t_8, __pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyUnicode_Join(__pyx_t_7, 4, __pyx_t_8, __pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 19, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 22, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       }
       __pyx_L10:;
 
-      /* "main_cython.py":13
+      /* "main_cython.py":16
  *                 found = False
  *                 break
  *         if found:             # <<<<<<<<<<<<<<
- *             if random.randint(min, max) != number:
+ *             if random.randint(min_val, max_val) != number:
  *                 possible_seeds.append(seed)
  */
     }
 
-    /* "main_cython.py":6
- * def find(number: int, count: int, max_count = 1, min=0, max=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:
+    /* "main_cython.py":9
+ * def find(number: int, count: int, max_count = 1, min_val=0, max_val=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:
  *     possible_seeds = []
  *     for seed in trange(min_seed, max_seed):             # <<<<<<<<<<<<<<
  *         random.seed(seed)
@@ -3176,7 +3196,7 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "main_cython.py":21
+  /* "main_cython.py":24
  *                 print(f"{seed}{count}")
  * 
  *     return possible_seeds             # <<<<<<<<<<<<<<
@@ -3186,10 +3206,10 @@ static PyObject *__pyx_pf_11main_cython_find(CYTHON_UNUSED PyObject *__pyx_self,
   __pyx_r = __pyx_v_possible_seeds;
   goto __pyx_L0;
 
-  /* "main_cython.py":4
- * from tqdm import trange
+  /* "main_cython.py":7
+ * import time
  * 
- * def find(number: int, count: int, max_count = 1, min=0, max=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:             # <<<<<<<<<<<<<<
+ * def find(number: int, count: int, max_count = 1, min_val=0, max_val=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:             # <<<<<<<<<<<<<<
  *     possible_seeds = []
  *     for seed in trange(min_seed, max_seed):
  */
@@ -3229,6 +3249,7 @@ static PyMethodDef __pyx_methods[] = {
 static int __Pyx_CreateStringTabAndInitStrings(void) {
   __Pyx_StringTabEntry __pyx_string_tab[] = {
     {&__pyx_n_u_, __pyx_k_, sizeof(__pyx_k_), 0, 1, 0, 1},
+    {&__pyx_n_s_Queue, __pyx_k_Queue, sizeof(__pyx_k_Queue), 0, 0, 1, 1},
     {&__pyx_kp_u__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0, 0},
     {&__pyx_n_s__3, __pyx_k__3, sizeof(__pyx_k__3), 0, 0, 1, 1},
     {&__pyx_kp_u__4, __pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0, 0},
@@ -3248,15 +3269,16 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
     {&__pyx_n_s_main_cython, __pyx_k_main_cython, sizeof(__pyx_k_main_cython), 0, 0, 1, 1},
     {&__pyx_kp_s_main_cython_py, __pyx_k_main_cython_py, sizeof(__pyx_k_main_cython_py), 0, 0, 1, 0},
-    {&__pyx_n_s_max, __pyx_k_max, sizeof(__pyx_k_max), 0, 0, 1, 1},
     {&__pyx_n_s_max_count, __pyx_k_max_count, sizeof(__pyx_k_max_count), 0, 0, 1, 1},
     {&__pyx_n_s_max_seed, __pyx_k_max_seed, sizeof(__pyx_k_max_seed), 0, 0, 1, 1},
-    {&__pyx_n_s_min, __pyx_k_min, sizeof(__pyx_k_min), 0, 0, 1, 1},
+    {&__pyx_n_s_max_val, __pyx_k_max_val, sizeof(__pyx_k_max_val), 0, 0, 1, 1},
     {&__pyx_n_s_min_seed, __pyx_k_min_seed, sizeof(__pyx_k_min_seed), 0, 0, 1, 1},
+    {&__pyx_n_s_min_val, __pyx_k_min_val, sizeof(__pyx_k_min_val), 0, 0, 1, 1},
     {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
     {&__pyx_n_s_number, __pyx_k_number, sizeof(__pyx_k_number), 0, 0, 1, 1},
     {&__pyx_n_s_possible_seeds, __pyx_k_possible_seeds, sizeof(__pyx_k_possible_seeds), 0, 0, 1, 1},
     {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
+    {&__pyx_n_s_queue, __pyx_k_queue, sizeof(__pyx_k_queue), 0, 0, 1, 1},
     {&__pyx_n_s_randint, __pyx_k_randint, sizeof(__pyx_k_randint), 0, 0, 1, 1},
     {&__pyx_n_s_random, __pyx_k_random, sizeof(__pyx_k_random), 0, 0, 1, 1},
     {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
@@ -3264,6 +3286,8 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_seed, __pyx_k_seed, sizeof(__pyx_k_seed), 0, 0, 1, 1},
     {&__pyx_n_s_spec, __pyx_k_spec, sizeof(__pyx_k_spec), 0, 0, 1, 1},
     {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
+    {&__pyx_n_s_threading, __pyx_k_threading, sizeof(__pyx_k_threading), 0, 0, 1, 1},
+    {&__pyx_n_s_time, __pyx_k_time, sizeof(__pyx_k_time), 0, 0, 1, 1},
     {&__pyx_n_s_tqdm, __pyx_k_tqdm, sizeof(__pyx_k_tqdm), 0, 0, 1, 1},
     {&__pyx_n_s_trange, __pyx_k_trange, sizeof(__pyx_k_trange), 0, 0, 1, 1},
     {0, 0, 0, 0, 0, 0, 0}
@@ -3272,8 +3296,8 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 }
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 9, __pyx_L1_error)
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 22, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3284,18 +3308,18 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "main_cython.py":4
- * from tqdm import trange
+  /* "main_cython.py":7
+ * import time
  * 
- * def find(number: int, count: int, max_count = 1, min=0, max=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:             # <<<<<<<<<<<<<<
+ * def find(number: int, count: int, max_count = 1, min_val=0, max_val=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:             # <<<<<<<<<<<<<<
  *     possible_seeds = []
  *     for seed in trange(min_seed, max_seed):
  */
-  __pyx_tuple__6 = PyTuple_Pack(12, __pyx_n_s_number, __pyx_n_s_count, __pyx_n_s_max_count, __pyx_n_s_min, __pyx_n_s_max, __pyx_n_s_max_seed, __pyx_n_s_min_seed, __pyx_n_s_direct, __pyx_n_s_possible_seeds, __pyx_n_s_seed, __pyx_n_s_found, __pyx_n_s__5); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(12, __pyx_n_s_number, __pyx_n_s_count, __pyx_n_s_max_count, __pyx_n_s_min_val, __pyx_n_s_max_val, __pyx_n_s_max_seed, __pyx_n_s_min_seed, __pyx_n_s_direct, __pyx_n_s_possible_seeds, __pyx_n_s_seed, __pyx_n_s_found, __pyx_n_s__5); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
-  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(8, 0, 0, 12, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_main_cython_py, __pyx_n_s_find, 4, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 4, __pyx_L1_error)
-  __pyx_tuple__8 = PyTuple_Pack(6, ((PyObject *)__pyx_int_1), ((PyObject *)__pyx_int_0), ((PyObject *)__pyx_int_100), ((PyObject *)__pyx_int_1000000), ((PyObject *)__pyx_int_0), ((PyObject *)Py_True)); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(8, 0, 0, 12, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_main_cython_py, __pyx_n_s_find, 7, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(6, ((PyObject *)__pyx_int_1), ((PyObject *)__pyx_int_0), ((PyObject *)__pyx_int_100), ((PyObject *)__pyx_int_1000000), ((PyObject *)__pyx_int_0), ((PyObject *)Py_True)); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
   __Pyx_RefNannyFinishContext();
@@ -3668,8 +3692,8 @@ if (!__Pyx_RefNanny) {
 
   /* "main_cython.py":1
  * import random             # <<<<<<<<<<<<<<
- * from tqdm import trange
- * 
+ * from tqdm import trange, tqdm
+ * import threading
  */
   __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_random, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -3678,15 +3702,18 @@ if (!__Pyx_RefNanny) {
 
   /* "main_cython.py":2
  * import random
- * from tqdm import trange             # <<<<<<<<<<<<<<
- * 
- * def find(number: int, count: int, max_count = 1, min=0, max=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:
+ * from tqdm import trange, tqdm             # <<<<<<<<<<<<<<
+ * import threading
+ * from queue import Queue
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_trange);
   __Pyx_GIVEREF(__pyx_n_s_trange);
   if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_trange)) __PYX_ERR(0, 2, __pyx_L1_error);
+  __Pyx_INCREF(__pyx_n_s_tqdm);
+  __Pyx_GIVEREF(__pyx_n_s_tqdm);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 1, __pyx_n_s_tqdm)) __PYX_ERR(0, 2, __pyx_L1_error);
   __pyx_t_3 = __Pyx_Import(__pyx_n_s_tqdm, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -3694,37 +3721,86 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_trange, __pyx_t_2) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_n_s_tqdm); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tqdm, __pyx_t_2) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "main_cython.py":3
+ * import random
+ * from tqdm import trange, tqdm
+ * import threading             # <<<<<<<<<<<<<<
+ * from queue import Queue
+ * import time
+ */
+  __pyx_t_3 = __Pyx_ImportDottedModule(__pyx_n_s_threading, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 3, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_threading, __pyx_t_3) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "main_cython.py":4
- * from tqdm import trange
+ * from tqdm import trange, tqdm
+ * import threading
+ * from queue import Queue             # <<<<<<<<<<<<<<
+ * import time
  * 
- * def find(number: int, count: int, max_count = 1, min=0, max=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:             # <<<<<<<<<<<<<<
+ */
+  __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_INCREF(__pyx_n_s_Queue);
+  __Pyx_GIVEREF(__pyx_n_s_Queue);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_n_s_Queue)) __PYX_ERR(0, 4, __pyx_L1_error);
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_queue, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Queue); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Queue, __pyx_t_3) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "main_cython.py":5
+ * import threading
+ * from queue import Queue
+ * import time             # <<<<<<<<<<<<<<
+ * 
+ * def find(number: int, count: int, max_count = 1, min_val=0, max_val=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:
+ */
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_time, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_time, __pyx_t_2) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "main_cython.py":7
+ * import time
+ * 
+ * def find(number: int, count: int, max_count = 1, min_val=0, max_val=100, max_seed=1000000, min_seed=0, direct=True) -> list[int]:             # <<<<<<<<<<<<<<
  *     possible_seeds = []
  *     for seed in trange(min_seed, max_seed):
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 4, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_number, __pyx_n_s_int) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_count, __pyx_n_s_int) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_return, __pyx_kp_s_list_int) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11main_cython_1find, 0, __pyx_n_s_find, NULL, __pyx_n_s_main_cython, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_tuple__8);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_find, __pyx_t_2) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_number, __pyx_n_s_int) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_count, __pyx_n_s_int) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_kp_s_list_int) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11main_cython_1find, 0, __pyx_n_s_find, NULL, __pyx_n_s_main_cython, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_3, __pyx_tuple__8);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_find, __pyx_t_3) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "main_cython.py":1
  * import random             # <<<<<<<<<<<<<<
- * from tqdm import trange
- * 
+ * from tqdm import trange, tqdm
+ * import threading
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_3) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /*--- Wrapped vars code ---*/
 
