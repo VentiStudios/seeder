@@ -11,3 +11,6 @@
 
 # Cython generated C codes
 **/*_cython.c
+
+# Test codes
+/finder/verify.py
