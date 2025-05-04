@@ -10,11 +10,11 @@ def process_seed(args):
 
 def find(number: int, count: int, max_count=1, 
                  min_val=0, max_val=100, max_seed=1_000_000,
-                 min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+                 min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
 
     def _worker():
         seeds = range(min_seed, max_seed)
-        with Pool(processes=threads) as pool:
+        with Pool(processes=processes) as pool:
             with tqdm(total=len(seeds), desc="种子搜索进度") as pbar:
                 results = []
                 for result in pool.imap_unordered(
@@ -49,7 +49,7 @@ def find_special(array: list[int], max_count=1,
     def _worker():
         seeds = range(min_seed, max_seed)
         with Pool(processes=threads) as pool:
-            with tqdm(total=len(seeds), desc="种子搜索进度") as pbar:
+            with tqdm(total=max_seed, initial=min_seed, desc="种子搜索进度") as pbar:
                 results = []
                 for result in pool.imap_unordered(
                     process_seed_special,

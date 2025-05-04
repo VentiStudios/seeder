@@ -1505,7 +1505,7 @@ typedef struct __pyx_defaults __pyx_defaults;
 struct __pyx_defaults1;
 typedef struct __pyx_defaults1 __pyx_defaults1;
 struct __pyx_defaults {
-  PyObject *__pyx_arg_threads;
+  PyObject *__pyx_arg_processes;
 };
 struct __pyx_defaults1 {
   PyObject *__pyx_arg_threads;
@@ -1547,7 +1547,7 @@ struct __pyx_obj_14main_optimized___pyx_scope_struct_1_genexpr {
  * 
  * def find(number: int, count: int, max_count=1,             # <<<<<<<<<<<<<<
  *                  min_val=0, max_val=100, max_seed=1_000_000,
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  */
 struct __pyx_obj_14main_optimized___pyx_scope_struct_2_find {
   PyObject_HEAD
@@ -1559,7 +1559,7 @@ struct __pyx_obj_14main_optimized___pyx_scope_struct_2_find {
   PyObject *__pyx_v_min_seed;
   PyObject *__pyx_v_min_val;
   PyObject *__pyx_v_number;
-  PyObject *__pyx_v_threads;
+  PyObject *__pyx_v_processes;
 };
 
 
@@ -2492,6 +2492,7 @@ static const char __pyx_k_update[] = "update";
 static const char __pyx_k_worker[] = "_worker";
 static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_genexpr[] = "genexpr";
+static const char __pyx_k_initial[] = "initial";
 static const char __pyx_k_max_val[] = "max_val";
 static const char __pyx_k_min_val[] = "min_val";
 static const char __pyx_k_randint[] = "randint";
@@ -2530,7 +2531,7 @@ static PyObject *__pyx_pf_14main_optimized_process_seed(CYTHON_UNUSED PyObject *
 static PyObject *__pyx_pf_14main_optimized_8__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_pf_14main_optimized_4find_7_worker_genexpr(PyObject *__pyx_self, PyObject *__pyx_genexpr_arg_0); /* proto */
 static PyObject *__pyx_pf_14main_optimized_4find__worker(PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_14main_optimized_2find(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_number, PyObject *__pyx_v_count, PyObject *__pyx_v_max_count, PyObject *__pyx_v_min_val, PyObject *__pyx_v_max_val, PyObject *__pyx_v_max_seed, PyObject *__pyx_v_min_seed, PyObject *__pyx_v_direct, PyObject *__pyx_v_threads); /* proto */
+static PyObject *__pyx_pf_14main_optimized_2find(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_number, PyObject *__pyx_v_count, PyObject *__pyx_v_max_count, PyObject *__pyx_v_min_val, PyObject *__pyx_v_max_val, PyObject *__pyx_v_max_seed, PyObject *__pyx_v_min_seed, PyObject *__pyx_v_direct, PyObject *__pyx_v_processes); /* proto */
 static PyObject *__pyx_pf_14main_optimized_20process_seed_special_genexpr(PyObject *__pyx_self, PyObject *__pyx_genexpr_arg_0); /* proto */
 static PyObject *__pyx_pf_14main_optimized_4process_seed_special(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_args); /* proto */
 static PyObject *__pyx_pf_14main_optimized_10__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
@@ -2622,6 +2623,7 @@ typedef struct {
   PyObject *__pyx_n_s_genexpr;
   PyObject *__pyx_n_s_imap_unordered;
   PyObject *__pyx_n_s_import;
+  PyObject *__pyx_n_s_initial;
   PyObject *__pyx_n_s_initializing;
   PyObject *__pyx_n_s_int;
   PyObject *__pyx_n_s_is_coroutine;
@@ -2772,6 +2774,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_genexpr);
   Py_CLEAR(clear_module_state->__pyx_n_s_imap_unordered);
   Py_CLEAR(clear_module_state->__pyx_n_s_import);
+  Py_CLEAR(clear_module_state->__pyx_n_s_initial);
   Py_CLEAR(clear_module_state->__pyx_n_s_initializing);
   Py_CLEAR(clear_module_state->__pyx_n_s_int);
   Py_CLEAR(clear_module_state->__pyx_n_s_is_coroutine);
@@ -2900,6 +2903,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_genexpr);
   Py_VISIT(traverse_module_state->__pyx_n_s_imap_unordered);
   Py_VISIT(traverse_module_state->__pyx_n_s_import);
+  Py_VISIT(traverse_module_state->__pyx_n_s_initial);
   Py_VISIT(traverse_module_state->__pyx_n_s_initializing);
   Py_VISIT(traverse_module_state->__pyx_n_s_int);
   Py_VISIT(traverse_module_state->__pyx_n_s_is_coroutine);
@@ -3038,6 +3042,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_genexpr __pyx_mstate_global->__pyx_n_s_genexpr
 #define __pyx_n_s_imap_unordered __pyx_mstate_global->__pyx_n_s_imap_unordered
 #define __pyx_n_s_import __pyx_mstate_global->__pyx_n_s_import
+#define __pyx_n_s_initial __pyx_mstate_global->__pyx_n_s_initial
 #define __pyx_n_s_initializing __pyx_mstate_global->__pyx_n_s_initializing
 #define __pyx_n_s_int __pyx_mstate_global->__pyx_n_s_int
 #define __pyx_n_s_is_coroutine __pyx_mstate_global->__pyx_n_s_is_coroutine
@@ -3634,7 +3639,7 @@ static PyObject *__pyx_pf_14main_optimized_process_seed(CYTHON_UNUSED PyObject *
  * 
  * def find(number: int, count: int, max_count=1,             # <<<<<<<<<<<<<<
  *                  min_val=0, max_val=100, max_seed=1_000_000,
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  */
 
 static PyObject *__pyx_pf_14main_optimized_8__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
@@ -3651,7 +3656,7 @@ static PyObject *__pyx_pf_14main_optimized_8__defaults__(CYTHON_UNUSED PyObject 
   /* "main_optimized.py":13
  * def find(number: int, count: int, max_count=1,
  *                  min_val=0, max_val=100, max_seed=1_000_000,
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:             # <<<<<<<<<<<<<<
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:             # <<<<<<<<<<<<<<
  * 
  *     def _worker():
  */
@@ -3675,16 +3680,16 @@ static PyObject *__pyx_pf_14main_optimized_8__defaults__(CYTHON_UNUSED PyObject 
   __Pyx_INCREF(((PyObject *)Py_True));
   __Pyx_GIVEREF(((PyObject *)Py_True));
   if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 5, ((PyObject *)Py_True))) __PYX_ERR(0, 11, __pyx_L1_error);
-  __Pyx_INCREF(__Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_self)->__pyx_arg_threads);
-  __Pyx_GIVEREF(__Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_self)->__pyx_arg_threads);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 6, __Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_self)->__pyx_arg_threads)) __PYX_ERR(0, 11, __pyx_L1_error);
+  __Pyx_INCREF(__Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_self)->__pyx_arg_processes);
+  __Pyx_GIVEREF(__Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_self)->__pyx_arg_processes);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 6, __Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_self)->__pyx_arg_processes)) __PYX_ERR(0, 11, __pyx_L1_error);
 
   /* "main_optimized.py":11
  *         return seed if found else None
  * 
  * def find(number: int, count: int, max_count=1,             # <<<<<<<<<<<<<<
  *                  min_val=0, max_val=100, max_seed=1_000_000,
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  */
   __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -3734,7 +3739,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   PyObject *__pyx_v_max_seed = 0;
   PyObject *__pyx_v_min_seed = 0;
   PyObject *__pyx_v_direct = 0;
-  PyObject *__pyx_v_threads = 0;
+  PyObject *__pyx_v_processes = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
@@ -3755,7 +3760,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_number,&__pyx_n_s_count,&__pyx_n_s_max_count,&__pyx_n_s_min_val,&__pyx_n_s_max_val,&__pyx_n_s_max_seed,&__pyx_n_s_min_seed,&__pyx_n_s_direct,&__pyx_n_s_threads,0};
+    PyObject **__pyx_pyargnames[] = {&__pyx_n_s_number,&__pyx_n_s_count,&__pyx_n_s_max_count,&__pyx_n_s_min_val,&__pyx_n_s_max_val,&__pyx_n_s_max_seed,&__pyx_n_s_min_seed,&__pyx_n_s_direct,&__pyx_n_s_processes,0};
     __pyx_defaults *__pyx_dynamic_args = __Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_self);
     values[2] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)((PyObject *)__pyx_int_1)));
     values[3] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)((PyObject *)__pyx_int_0)));
@@ -3763,7 +3768,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     values[5] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)((PyObject *)__pyx_int_1000000)));
     values[6] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)((PyObject *)__pyx_int_0)));
     values[7] = __Pyx_Arg_NewRef_FASTCALL(((PyObject *)((PyObject *)Py_True)));
-    values[8] = __Pyx_Arg_NewRef_FASTCALL(__pyx_dynamic_args->__pyx_arg_threads);
+    values[8] = __Pyx_Arg_NewRef_FASTCALL(__pyx_dynamic_args->__pyx_arg_processes);
     if (__pyx_kwds) {
       Py_ssize_t kw_args;
       switch (__pyx_nargs) {
@@ -3852,7 +3857,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         CYTHON_FALLTHROUGH;
         case  8:
         if (kw_args > 0) {
-          PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_threads);
+          PyObject* value = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_processes);
           if (value) { values[8] = __Pyx_Arg_NewRef_FASTCALL(value); kw_args--; }
           else if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
         }
@@ -3891,7 +3896,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     __pyx_v_max_seed = values[5];
     __pyx_v_min_seed = values[6];
     __pyx_v_direct = values[7];
-    __pyx_v_threads = values[8];
+    __pyx_v_processes = values[8];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
@@ -3911,7 +3916,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_number), (&PyInt_Type), 0, "number", 1))) __PYX_ERR(0, 11, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_count), (&PyInt_Type), 0, "count", 1))) __PYX_ERR(0, 11, __pyx_L1_error)
-  __pyx_r = __pyx_pf_14main_optimized_2find(__pyx_self, __pyx_v_number, __pyx_v_count, __pyx_v_max_count, __pyx_v_min_val, __pyx_v_max_val, __pyx_v_max_seed, __pyx_v_min_seed, __pyx_v_direct, __pyx_v_threads);
+  __pyx_r = __pyx_pf_14main_optimized_2find(__pyx_self, __pyx_v_number, __pyx_v_count, __pyx_v_max_count, __pyx_v_min_val, __pyx_v_max_val, __pyx_v_max_seed, __pyx_v_min_seed, __pyx_v_direct, __pyx_v_processes);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3929,11 +3934,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 
 /* "main_optimized.py":15
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  * 
  *     def _worker():             # <<<<<<<<<<<<<<
  *         seeds = range(min_seed, max_seed)
- *         with Pool(processes=threads) as pool:
+ *         with Pool(processes=processes) as pool:
  */
 
 /* Python wrapper */
@@ -4143,11 +4148,11 @@ static PyObject *__pyx_gb_14main_optimized_4find_7_worker_2generator1(__pyx_Coro
 }
 
 /* "main_optimized.py":15
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  * 
  *     def _worker():             # <<<<<<<<<<<<<<
  *         seeds = range(min_seed, max_seed)
- *         with Pool(processes=threads) as pool:
+ *         with Pool(processes=processes) as pool:
  */
 
 static PyObject *__pyx_pf_14main_optimized_4find__worker(PyObject *__pyx_self) {
@@ -4192,7 +4197,7 @@ static PyObject *__pyx_pf_14main_optimized_4find__worker(PyObject *__pyx_self) {
  * 
  *     def _worker():
  *         seeds = range(min_seed, max_seed)             # <<<<<<<<<<<<<<
- *         with Pool(processes=threads) as pool:
+ *         with Pool(processes=processes) as pool:
  *             with tqdm(total=len(seeds), desc="") as pbar:
  */
   if (unlikely(!__pyx_cur_scope->__pyx_v_min_seed)) { __Pyx_RaiseClosureNameError("min_seed"); __PYX_ERR(0, 16, __pyx_L1_error) }
@@ -4214,7 +4219,7 @@ static PyObject *__pyx_pf_14main_optimized_4find__worker(PyObject *__pyx_self) {
   /* "main_optimized.py":17
  *     def _worker():
  *         seeds = range(min_seed, max_seed)
- *         with Pool(processes=threads) as pool:             # <<<<<<<<<<<<<<
+ *         with Pool(processes=processes) as pool:             # <<<<<<<<<<<<<<
  *             with tqdm(total=len(seeds), desc="") as pbar:
  *                 results = []
  */
@@ -4223,8 +4228,8 @@ static PyObject *__pyx_pf_14main_optimized_4find__worker(PyObject *__pyx_self) {
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely(!__pyx_cur_scope->__pyx_v_threads)) { __Pyx_RaiseClosureNameError("threads"); __PYX_ERR(0, 17, __pyx_L1_error) }
-    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_processes, __pyx_cur_scope->__pyx_v_threads) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_v_processes)) { __Pyx_RaiseClosureNameError("processes"); __PYX_ERR(0, 17, __pyx_L1_error) }
+    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_processes, __pyx_cur_scope->__pyx_v_processes) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
     __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -4272,7 +4277,7 @@ static PyObject *__pyx_pf_14main_optimized_4find__worker(PyObject *__pyx_self) {
 
           /* "main_optimized.py":18
  *         seeds = range(min_seed, max_seed)
- *         with Pool(processes=threads) as pool:
+ *         with Pool(processes=processes) as pool:
  *             with tqdm(total=len(seeds), desc="") as pbar:             # <<<<<<<<<<<<<<
  *                 results = []
  *                 for result in pool.imap_unordered(
@@ -4334,7 +4339,7 @@ static PyObject *__pyx_pf_14main_optimized_4find__worker(PyObject *__pyx_self) {
                   __pyx_t_2 = 0;
 
                   /* "main_optimized.py":19
- *         with Pool(processes=threads) as pool:
+ *         with Pool(processes=processes) as pool:
  *             with tqdm(total=len(seeds), desc="") as pbar:
  *                 results = []             # <<<<<<<<<<<<<<
  *                 for result in pool.imap_unordered(
@@ -4625,7 +4630,7 @@ static PyObject *__pyx_pf_14main_optimized_4find__worker(PyObject *__pyx_self) {
 
                   /* "main_optimized.py":18
  *         seeds = range(min_seed, max_seed)
- *         with Pool(processes=threads) as pool:
+ *         with Pool(processes=processes) as pool:
  *             with tqdm(total=len(seeds), desc="") as pbar:             # <<<<<<<<<<<<<<
  *                 results = []
  *                 for result in pool.imap_unordered(
@@ -4707,7 +4712,7 @@ static PyObject *__pyx_pf_14main_optimized_4find__worker(PyObject *__pyx_self) {
           /* "main_optimized.py":17
  *     def _worker():
  *         seeds = range(min_seed, max_seed)
- *         with Pool(processes=threads) as pool:             # <<<<<<<<<<<<<<
+ *         with Pool(processes=processes) as pool:             # <<<<<<<<<<<<<<
  *             with tqdm(total=len(seeds), desc="") as pbar:
  *                 results = []
  */
@@ -4822,11 +4827,11 @@ static PyObject *__pyx_pf_14main_optimized_4find__worker(PyObject *__pyx_self) {
   goto __pyx_L0;
 
   /* "main_optimized.py":15
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  * 
  *     def _worker():             # <<<<<<<<<<<<<<
  *         seeds = range(min_seed, max_seed)
- *         with Pool(processes=threads) as pool:
+ *         with Pool(processes=processes) as pool:
  */
 
   /* function exit code */
@@ -4854,10 +4859,10 @@ static PyObject *__pyx_pf_14main_optimized_4find__worker(PyObject *__pyx_self) {
  * 
  * def find(number: int, count: int, max_count=1,             # <<<<<<<<<<<<<<
  *                  min_val=0, max_val=100, max_seed=1_000_000,
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  */
 
-static PyObject *__pyx_pf_14main_optimized_2find(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_number, PyObject *__pyx_v_count, PyObject *__pyx_v_max_count, PyObject *__pyx_v_min_val, PyObject *__pyx_v_max_val, PyObject *__pyx_v_max_seed, PyObject *__pyx_v_min_seed, PyObject *__pyx_v_direct, PyObject *__pyx_v_threads) {
+static PyObject *__pyx_pf_14main_optimized_2find(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_number, PyObject *__pyx_v_count, PyObject *__pyx_v_max_count, PyObject *__pyx_v_min_val, PyObject *__pyx_v_max_val, PyObject *__pyx_v_max_seed, PyObject *__pyx_v_min_seed, PyObject *__pyx_v_direct, PyObject *__pyx_v_processes) {
   struct __pyx_obj_14main_optimized___pyx_scope_struct_2_find *__pyx_cur_scope;
   PyObject *__pyx_v__worker = 0;
   PyObject *__pyx_r = NULL;
@@ -4903,16 +4908,16 @@ static PyObject *__pyx_pf_14main_optimized_2find(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_cur_scope->__pyx_v_direct = __pyx_v_direct;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_direct);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_direct);
-  __pyx_cur_scope->__pyx_v_threads = __pyx_v_threads;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_threads);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_threads);
+  __pyx_cur_scope->__pyx_v_processes = __pyx_v_processes;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_processes);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_processes);
 
   /* "main_optimized.py":15
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  * 
  *     def _worker():             # <<<<<<<<<<<<<<
  *         seeds = range(min_seed, max_seed)
- *         with Pool(processes=threads) as pool:
+ *         with Pool(processes=processes) as pool:
  */
   __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_14main_optimized_4find_1_worker, 0, __pyx_n_s_find_locals__worker, ((PyObject*)__pyx_cur_scope), __pyx_n_s_main_optimized, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -5009,7 +5014,7 @@ static PyObject *__pyx_pf_14main_optimized_2find(CYTHON_UNUSED PyObject *__pyx_s
  * 
  * def find(number: int, count: int, max_count=1,             # <<<<<<<<<<<<<<
  *                  min_val=0, max_val=100, max_seed=1_000_000,
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  */
 
   /* function exit code */
@@ -6065,11 +6070,11 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
   PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
   PyObject *__pyx_t_9 = NULL;
-  Py_ssize_t __pyx_t_10;
+  PyObject *__pyx_t_10 = NULL;
   PyObject *__pyx_t_11 = NULL;
   PyObject *__pyx_t_12 = NULL;
   PyObject *__pyx_t_13 = NULL;
-  PyObject *__pyx_t_14 = NULL;
+  Py_ssize_t __pyx_t_14;
   PyObject *(*__pyx_t_15)(PyObject *);
   int __pyx_t_16;
   int __pyx_t_17;
@@ -6088,7 +6093,7 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
  *     def _worker():
  *         seeds = range(min_seed, max_seed)             # <<<<<<<<<<<<<<
  *         with Pool(processes=threads) as pool:
- *             with tqdm(total=len(seeds), desc="") as pbar:
+ *             with tqdm(total=max_seed, initial=min_seed, desc="") as pbar:
  */
   if (unlikely(!__pyx_cur_scope->__pyx_v_min_seed)) { __Pyx_RaiseClosureNameError("min_seed"); __PYX_ERR(0, 50, __pyx_L1_error) }
   if (unlikely(!__pyx_cur_scope->__pyx_v_max_seed)) { __Pyx_RaiseClosureNameError("max_seed"); __PYX_ERR(0, 50, __pyx_L1_error) }
@@ -6110,7 +6115,7 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
  *     def _worker():
  *         seeds = range(min_seed, max_seed)
  *         with Pool(processes=threads) as pool:             # <<<<<<<<<<<<<<
- *             with tqdm(total=len(seeds), desc="") as pbar:
+ *             with tqdm(total=max_seed, initial=min_seed, desc="") as pbar:
  *                 results = []
  */
   /*with:*/ {
@@ -6168,27 +6173,26 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
           /* "main_optimized.py":52
  *         seeds = range(min_seed, max_seed)
  *         with Pool(processes=threads) as pool:
- *             with tqdm(total=len(seeds), desc="") as pbar:             # <<<<<<<<<<<<<<
+ *             with tqdm(total=max_seed, initial=min_seed, desc="") as pbar:             # <<<<<<<<<<<<<<
  *                 results = []
  *                 for result in pool.imap_unordered(
  */
           /*with:*/ {
             __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_tqdm); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L7_error)
             __Pyx_GOTREF(__pyx_t_2);
-            __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L7_error)
+            __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L7_error)
             __Pyx_GOTREF(__pyx_t_3);
-            __pyx_t_10 = PyObject_Length(__pyx_v_seeds); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 52, __pyx_L7_error)
-            __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L7_error)
-            __Pyx_GOTREF(__pyx_t_1);
-            if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_total, __pyx_t_1) < 0) __PYX_ERR(0, 52, __pyx_L7_error)
-            __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+            if (unlikely(!__pyx_cur_scope->__pyx_v_max_seed)) { __Pyx_RaiseClosureNameError("max_seed"); __PYX_ERR(0, 52, __pyx_L7_error) }
+            if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_total, __pyx_cur_scope->__pyx_v_max_seed) < 0) __PYX_ERR(0, 52, __pyx_L7_error)
+            if (unlikely(!__pyx_cur_scope->__pyx_v_min_seed)) { __Pyx_RaiseClosureNameError("min_seed"); __PYX_ERR(0, 52, __pyx_L7_error) }
+            if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_initial, __pyx_cur_scope->__pyx_v_min_seed) < 0) __PYX_ERR(0, 52, __pyx_L7_error)
             if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_desc, __pyx_kp_s_) < 0) __PYX_ERR(0, 52, __pyx_L7_error)
             __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L7_error)
             __Pyx_GOTREF(__pyx_t_1);
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-            __pyx_t_11 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 52, __pyx_L7_error)
-            __Pyx_GOTREF(__pyx_t_11);
+            __pyx_t_10 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 52, __pyx_L7_error)
+            __Pyx_GOTREF(__pyx_t_10);
             __pyx_t_2 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L13_error)
             __Pyx_GOTREF(__pyx_t_2);
             __pyx_t_5 = NULL;
@@ -6220,17 +6224,17 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
               {
                 __Pyx_PyThreadState_declare
                 __Pyx_PyThreadState_assign
-                __Pyx_ExceptionSave(&__pyx_t_12, &__pyx_t_13, &__pyx_t_14);
+                __Pyx_ExceptionSave(&__pyx_t_11, &__pyx_t_12, &__pyx_t_13);
+                __Pyx_XGOTREF(__pyx_t_11);
                 __Pyx_XGOTREF(__pyx_t_12);
                 __Pyx_XGOTREF(__pyx_t_13);
-                __Pyx_XGOTREF(__pyx_t_14);
                 /*try:*/ {
                   __pyx_v_pbar = __pyx_t_2;
                   __pyx_t_2 = 0;
 
                   /* "main_optimized.py":53
  *         with Pool(processes=threads) as pool:
- *             with tqdm(total=len(seeds), desc="") as pbar:
+ *             with tqdm(total=max_seed, initial=min_seed, desc="") as pbar:
  *                 results = []             # <<<<<<<<<<<<<<
  *                 for result in pool.imap_unordered(
  *                     process_seed_special,
@@ -6241,7 +6245,7 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
                   __pyx_t_2 = 0;
 
                   /* "main_optimized.py":54
- *             with tqdm(total=len(seeds), desc="") as pbar:
+ *             with tqdm(total=max_seed, initial=min_seed, desc="") as pbar:
  *                 results = []
  *                 for result in pool.imap_unordered(             # <<<<<<<<<<<<<<
  *                     process_seed_special,
@@ -6271,7 +6275,7 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
                   __Pyx_GOTREF(__pyx_t_3);
 
                   /* "main_optimized.py":54
- *             with tqdm(total=len(seeds), desc="") as pbar:
+ *             with tqdm(total=max_seed, initial=min_seed, desc="") as pbar:
  *                 results = []
  *                 for result in pool.imap_unordered(             # <<<<<<<<<<<<<<
  *                     process_seed_special,
@@ -6298,7 +6302,7 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
                   if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_chunksize, __pyx_int_1000) < 0) __PYX_ERR(0, 57, __pyx_L17_error)
 
                   /* "main_optimized.py":54
- *             with tqdm(total=len(seeds), desc="") as pbar:
+ *             with tqdm(total=max_seed, initial=min_seed, desc="") as pbar:
  *                 results = []
  *                 for result in pool.imap_unordered(             # <<<<<<<<<<<<<<
  *                     process_seed_special,
@@ -6311,10 +6315,10 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
                   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
                   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
                     __pyx_t_3 = __pyx_t_1; __Pyx_INCREF(__pyx_t_3);
-                    __pyx_t_10 = 0;
+                    __pyx_t_14 = 0;
                     __pyx_t_15 = NULL;
                   } else {
-                    __pyx_t_10 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L17_error)
+                    __pyx_t_14 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L17_error)
                     __Pyx_GOTREF(__pyx_t_3);
                     __pyx_t_15 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 54, __pyx_L17_error)
                   }
@@ -6327,12 +6331,12 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
                           #if !CYTHON_ASSUME_SAFE_MACROS
                           if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 54, __pyx_L17_error)
                           #endif
-                          if (__pyx_t_10 >= __pyx_temp) break;
+                          if (__pyx_t_14 >= __pyx_temp) break;
                         }
                         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-                        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_10); __Pyx_INCREF(__pyx_t_1); __pyx_t_10++; if (unlikely((0 < 0))) __PYX_ERR(0, 54, __pyx_L17_error)
+                        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_1); __pyx_t_14++; if (unlikely((0 < 0))) __PYX_ERR(0, 54, __pyx_L17_error)
                         #else
-                        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L17_error)
+                        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L17_error)
                         __Pyx_GOTREF(__pyx_t_1);
                         #endif
                       } else {
@@ -6341,12 +6345,12 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
                           #if !CYTHON_ASSUME_SAFE_MACROS
                           if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 54, __pyx_L17_error)
                           #endif
-                          if (__pyx_t_10 >= __pyx_temp) break;
+                          if (__pyx_t_14 >= __pyx_temp) break;
                         }
                         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-                        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_10); __Pyx_INCREF(__pyx_t_1); __pyx_t_10++; if (unlikely((0 < 0))) __PYX_ERR(0, 54, __pyx_L17_error)
+                        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_1); __pyx_t_14++; if (unlikely((0 < 0))) __PYX_ERR(0, 54, __pyx_L17_error)
                         #else
-                        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L17_error)
+                        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L17_error)
                         __Pyx_GOTREF(__pyx_t_1);
                         #endif
                       }
@@ -6504,7 +6508,7 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
                     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
                     /* "main_optimized.py":54
- *             with tqdm(total=len(seeds), desc="") as pbar:
+ *             with tqdm(total=max_seed, initial=min_seed, desc="") as pbar:
  *                 results = []
  *                 for result in pool.imap_unordered(             # <<<<<<<<<<<<<<
  *                     process_seed_special,
@@ -6521,14 +6525,14 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
                   /* "main_optimized.py":52
  *         seeds = range(min_seed, max_seed)
  *         with Pool(processes=threads) as pool:
- *             with tqdm(total=len(seeds), desc="") as pbar:             # <<<<<<<<<<<<<<
+ *             with tqdm(total=max_seed, initial=min_seed, desc="") as pbar:             # <<<<<<<<<<<<<<
  *                 results = []
  *                 for result in pool.imap_unordered(
  */
                 }
+                __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
                 __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
                 __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
-                __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
                 goto __pyx_L22_try_end;
                 __pyx_L17_error:;
                 __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -6543,8 +6547,8 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
                   __Pyx_XGOTREF(__pyx_t_1);
                   __pyx_t_2 = PyTuple_Pack(3, __pyx_t_3, __pyx_t_5, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L19_except_error)
                   __Pyx_GOTREF(__pyx_t_2);
-                  __pyx_t_20 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_2, NULL);
-                  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+                  __pyx_t_20 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_2, NULL);
+                  __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
                   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
                   if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 52, __pyx_L19_except_error)
                   __Pyx_GOTREF(__pyx_t_20);
@@ -6566,27 +6570,27 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
                   goto __pyx_L18_exception_handled;
                 }
                 __pyx_L19_except_error:;
+                __Pyx_XGIVEREF(__pyx_t_11);
                 __Pyx_XGIVEREF(__pyx_t_12);
                 __Pyx_XGIVEREF(__pyx_t_13);
-                __Pyx_XGIVEREF(__pyx_t_14);
-                __Pyx_ExceptionReset(__pyx_t_12, __pyx_t_13, __pyx_t_14);
+                __Pyx_ExceptionReset(__pyx_t_11, __pyx_t_12, __pyx_t_13);
                 goto __pyx_L7_error;
                 __pyx_L18_exception_handled:;
+                __Pyx_XGIVEREF(__pyx_t_11);
                 __Pyx_XGIVEREF(__pyx_t_12);
                 __Pyx_XGIVEREF(__pyx_t_13);
-                __Pyx_XGIVEREF(__pyx_t_14);
-                __Pyx_ExceptionReset(__pyx_t_12, __pyx_t_13, __pyx_t_14);
+                __Pyx_ExceptionReset(__pyx_t_11, __pyx_t_12, __pyx_t_13);
                 __pyx_L22_try_end:;
               }
             }
             /*finally:*/ {
               /*normal exit:*/{
-                if (__pyx_t_11) {
-                  __pyx_t_14 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_tuple__2, NULL);
-                  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-                  if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 52, __pyx_L7_error)
-                  __Pyx_GOTREF(__pyx_t_14);
-                  __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+                if (__pyx_t_10) {
+                  __pyx_t_13 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_tuple__2, NULL);
+                  __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+                  if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 52, __pyx_L7_error)
+                  __Pyx_GOTREF(__pyx_t_13);
+                  __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
                 }
                 goto __pyx_L16;
               }
@@ -6594,7 +6598,7 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
             }
             goto __pyx_L33;
             __pyx_L13_error:;
-            __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+            __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
             goto __pyx_L7_error;
             __pyx_L33:;
           }
@@ -6603,7 +6607,7 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
  *     def _worker():
  *         seeds = range(min_seed, max_seed)
  *         with Pool(processes=threads) as pool:             # <<<<<<<<<<<<<<
- *             with tqdm(total=len(seeds), desc="") as pbar:
+ *             with tqdm(total=max_seed, initial=min_seed, desc="") as pbar:
  *                 results = []
  */
         }
@@ -6624,13 +6628,13 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
           __Pyx_XGOTREF(__pyx_t_3);
           __pyx_t_2 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L9_except_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, NULL);
+          __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 51, __pyx_L9_except_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          __pyx_t_18 = __Pyx_PyObject_IsTrue(__pyx_t_11);
-          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 51, __pyx_L9_except_error)
+          __Pyx_GOTREF(__pyx_t_10);
+          __pyx_t_18 = __Pyx_PyObject_IsTrue(__pyx_t_10);
+          __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           if (__pyx_t_18 < 0) __PYX_ERR(0, 51, __pyx_L9_except_error)
           __pyx_t_16 = (!__pyx_t_18);
           if (unlikely(__pyx_t_16)) {
@@ -6697,13 +6701,13 @@ static PyObject *__pyx_pf_14main_optimized_12find_special__worker(PyObject *__py
     __pyx_t_5 = __pyx_cur_scope->__pyx_v_max_count;
     __pyx_t_18 = (__pyx_t_5 == Py_None);
     if (__pyx_t_18) {
-      __pyx_t_10 = PY_SSIZE_T_MAX;
+      __pyx_t_14 = PY_SSIZE_T_MAX;
     } else {
       __pyx_t_19 = __Pyx_PyIndex_AsSsize_t(__pyx_t_5); if (unlikely((__pyx_t_19 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 65, __pyx_L1_error)
-      __pyx_t_10 = __pyx_t_19;
+      __pyx_t_14 = __pyx_t_19;
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyList_GetSlice(__pyx_v_results, 0, __pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyList_GetSlice(__pyx_v_results, 0, __pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_3 = __pyx_t_5;
     __pyx_t_5 = 0;
@@ -7328,7 +7332,7 @@ static void __pyx_tp_dealloc_14main_optimized___pyx_scope_struct_2_find(PyObject
   Py_CLEAR(p->__pyx_v_min_seed);
   Py_CLEAR(p->__pyx_v_min_val);
   Py_CLEAR(p->__pyx_v_number);
-  Py_CLEAR(p->__pyx_v_threads);
+  Py_CLEAR(p->__pyx_v_processes);
   #if CYTHON_USE_FREELISTS
   if (((int)(__pyx_freecount_14main_optimized___pyx_scope_struct_2_find < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14main_optimized___pyx_scope_struct_2_find)))) {
     __pyx_freelist_14main_optimized___pyx_scope_struct_2_find[__pyx_freecount_14main_optimized___pyx_scope_struct_2_find++] = ((struct __pyx_obj_14main_optimized___pyx_scope_struct_2_find *)o);
@@ -7367,8 +7371,8 @@ static int __pyx_tp_traverse_14main_optimized___pyx_scope_struct_2_find(PyObject
   if (p->__pyx_v_min_val) {
     e = (*v)(p->__pyx_v_min_val, a); if (e) return e;
   }
-  if (p->__pyx_v_threads) {
-    e = (*v)(p->__pyx_v_threads, a); if (e) return e;
+  if (p->__pyx_v_processes) {
+    e = (*v)(p->__pyx_v_processes, a); if (e) return e;
   }
   return 0;
 }
@@ -7394,8 +7398,8 @@ static int __pyx_tp_clear_14main_optimized___pyx_scope_struct_2_find(PyObject *o
   tmp = ((PyObject*)p->__pyx_v_min_val);
   p->__pyx_v_min_val = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->__pyx_v_threads);
-  p->__pyx_v_threads = Py_None; Py_INCREF(Py_None);
+  tmp = ((PyObject*)p->__pyx_v_processes);
+  p->__pyx_v_processes = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
 }
@@ -8484,6 +8488,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_genexpr, __pyx_k_genexpr, sizeof(__pyx_k_genexpr), 0, 0, 1, 1},
     {&__pyx_n_s_imap_unordered, __pyx_k_imap_unordered, sizeof(__pyx_k_imap_unordered), 0, 0, 1, 1},
     {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
+    {&__pyx_n_s_initial, __pyx_k_initial, sizeof(__pyx_k_initial), 0, 0, 1, 1},
     {&__pyx_n_s_initializing, __pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 0, 1, 1},
     {&__pyx_n_s_int, __pyx_k_int, sizeof(__pyx_k_int), 0, 0, 1, 1},
     {&__pyx_n_s_is_coroutine, __pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 0, 1, 1},
@@ -8545,7 +8550,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
   /* "main_optimized.py":18
  *         seeds = range(min_seed, max_seed)
- *         with Pool(processes=threads) as pool:
+ *         with Pool(processes=processes) as pool:
  *             with tqdm(total=len(seeds), desc="") as pbar:             # <<<<<<<<<<<<<<
  *                 results = []
  *                 for result in pool.imap_unordered(
@@ -8555,11 +8560,11 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__2);
 
   /* "main_optimized.py":15
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  * 
  *     def _worker():             # <<<<<<<<<<<<<<
  *         seeds = range(min_seed, max_seed)
- *         with Pool(processes=threads) as pool:
+ *         with Pool(processes=processes) as pool:
  */
   __pyx_tuple__3 = PyTuple_Pack(7, __pyx_n_s_seeds, __pyx_n_s_pool, __pyx_n_s_pbar, __pyx_n_s_results, __pyx_n_s_result, __pyx_n_s_genexpr, __pyx_n_s_genexpr); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
@@ -8592,9 +8597,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * def find(number: int, count: int, max_count=1,             # <<<<<<<<<<<<<<
  *                  min_val=0, max_val=100, max_seed=1_000_000,
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  */
-  __pyx_tuple__10 = PyTuple_Pack(11, __pyx_n_s_number, __pyx_n_s_count, __pyx_n_s_max_count, __pyx_n_s_min_val, __pyx_n_s_max_val, __pyx_n_s_max_seed, __pyx_n_s_min_seed, __pyx_n_s_direct, __pyx_n_s_threads, __pyx_n_s_worker, __pyx_n_s_worker); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(11, __pyx_n_s_number, __pyx_n_s_count, __pyx_n_s_max_count, __pyx_n_s_min_val, __pyx_n_s_max_val, __pyx_n_s_max_seed, __pyx_n_s_min_seed, __pyx_n_s_direct, __pyx_n_s_processes, __pyx_n_s_worker, __pyx_n_s_worker); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
   __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(9, 0, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_main_optimized_py, __pyx_n_s_find, 11, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 11, __pyx_L1_error)
@@ -9234,7 +9239,7 @@ if (!__Pyx_RefNanny) {
  * 
  * def find(number: int, count: int, max_count=1,             # <<<<<<<<<<<<<<
  *                  min_val=0, max_val=100, max_seed=1_000_000,
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:
  */
   __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -9248,7 +9253,7 @@ if (!__Pyx_RefNanny) {
   /* "main_optimized.py":13
  * def find(number: int, count: int, max_count=1,
  *                  min_val=0, max_val=100, max_seed=1_000_000,
- *                  min_seed=0, direct=True, threads=cpu_count() // 2) -> list[int]:             # <<<<<<<<<<<<<<
+ *                  min_seed=0, direct=True, processes=cpu_count() // 2) -> list[int]:             # <<<<<<<<<<<<<<
  * 
  *     def _worker():
  */
@@ -9260,7 +9265,7 @@ if (!__Pyx_RefNanny) {
   __pyx_t_4 = __Pyx_PyInt_FloorDivideObjC(__pyx_t_5, __pyx_int_2, 2, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_t_3)->__pyx_arg_threads = __pyx_t_4;
+  __Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_t_3)->__pyx_arg_processes = __pyx_t_4;
   __Pyx_GIVEREF(__pyx_t_4);
   __pyx_t_4 = 0;
   __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_3, __pyx_pf_14main_optimized_8__defaults__);
